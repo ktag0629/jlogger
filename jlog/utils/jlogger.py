@@ -19,12 +19,12 @@ class JLog:
         self._log_type = log_type
         self._log_dir = os.path.join(os.path.expanduser("~"), "JLOGS")
         if not os.path.isdir(self._log_dir):
-            os.mkdir(self._logfile)
+            os.mkdir(self._log_dir)
 
     def write_to_log(self, message):
         timestamp_format = "[%Y-%m-%d %I:%M %p]"
         timestamp = datetime.now().strftime(timestamp_format) # uses local time
 
         logfile = os.path.join(self._log_dir, "main.log")
-        with open(logfile, "w+") as lf:
-            lf.write(timestamp + " " + message)
+        with open(logfile, "a+") as lf:
+            lf.write(timestamp + " " + message + "\n")
