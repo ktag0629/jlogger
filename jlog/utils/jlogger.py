@@ -4,8 +4,8 @@ import os
 
 class Timestamp_level(Enum):
     NOW = 1
-    TODAY = 2
-    DATE = 3
+    #TODAY = 2
+    #DATE = 3
 
 class Log_type(Enum):
     LOG = 1

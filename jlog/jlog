@@ -7,9 +7,11 @@ def main():
     
     # parse arguments 
     parser = argparse.ArgumentParser(description="Write some logs!")
-    parser.add_argument("--now", dest="timestamp_level", help="Timestamp to now")
+    parser.add_argument("-m", dest="message", help="write quick message")
     args = parser.parse_args()
     jl = jlog.JLog(jlog.Timestamp_level.NOW, jlog.Log_type.LOG)
-    jl.write_to_log("Message sample")
+
+    if args.message:
+        jl.write_to_log(args.message)
 
 main()
