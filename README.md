@@ -6,6 +6,14 @@ Simple journal application
 
 ---
 
+## Installation
+
+```
+python3 setup.py build
+python3 setup.py test
+sudo python3 setup.py install
+```
+
 ## Usage 
 
 `jlog -m "fixing bug from yesterday"`
