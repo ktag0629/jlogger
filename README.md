@@ -8,6 +8,6 @@ Simple journal application
 
 ## Usage 
 
-`jlog --quick "fixing bug from yesterday"`
+`jlog -m "fixing bug from yesterday"`
 
 Writes this timestamped to a designated log file, can be configured in some config file in ~/.config
