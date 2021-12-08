@@ -1,6 +1,6 @@
 from enum import Enum
 from datetime import datetime
-import appdirs
+import os
 
 class Timestamp_level(Enum):
     NOW = 1
@@ -14,7 +14,17 @@ class Log_type(Enum):
 
 class JLog:
     
-    def __init__(tstamp_level, log_type):
+    def __init__(self, tstamp_level, log_type):
         self._tstamp_level = tstamp_level
         self._log_type = log_type
+        self._log_dir = os.path.join(os.path.expanduser("~"), "JLOGS")
+        if not os.path.isdir(self._log_dir):
+            os.mkdir(self._logfile)
 
+    def write_to_log(self, message):
+        timestamp_format = "[%Y-%m-%d %I:%M %p]"
+        timestamp = datetime.now().strftime(timestamp_format) # uses local time
+
+        logfile = os.path.join(self._log_dir, "main.log")
+        with open(logfile, "w+") as lf:
+            lf.write(timestamp + " " + message)
