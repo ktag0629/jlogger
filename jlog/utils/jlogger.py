@@ -22,6 +22,10 @@ class JLog:
             os.mkdir(self._log_dir)
 
     def write_to_log(self, message):
+
+        # sanitize messgae
+        message = message.strip()
+
         timestamp_format = "[%Y-%m-%d %I:%M %p]"
         timestamp = datetime.now().strftime(timestamp_format) # uses local time
 
