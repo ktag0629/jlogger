@@ -7,11 +7,16 @@ def main():
     
     # parse arguments 
     parser = argparse.ArgumentParser(description="Write some logs!")
-    parser.add_argument("-m", dest="message", help="write quick message")
+    parser.add_argument("-m", '--message', dest="message", help="write quick message")
+    parser.add_argument("-l", '--list',  action="store_true", help="list all last 10 logs")
     args = parser.parse_args()
     jl = jlog.JLog(jlog.Timestamp_level.NOW, jlog.Log_type.LOG)
 
     if args.message:
         jl.write_to_log(args.message)
+
+    if args.list:
+        jl.list_last_logs(count=10)
+
 
 main()

@@ -32,3 +32,10 @@ class JLog:
         logfile = os.path.join(self._log_dir, "main.log")
         with open(logfile, "a+") as lf:
             lf.write(timestamp + " " + message + "\n")
+
+    def list_last_logs(self, count=10):
+
+        logfile = os.path.join(self._log_dir, "main.log")
+        with open(logfile, "r") as lf:
+            for line in (lf.readlines()[-count:]):
+                print(line, end='')
