@@ -10,13 +10,13 @@ def main():
     parser.add_argument("-m", '--message', dest="message", help="write quick message")
     parser.add_argument("-l", '--list',  action="store_true", help="list all last 10 logs")
     args = parser.parse_args()
-    jl = jlog.JLog(jlog.Timestamp_level.NOW, jlog.Log_type.LOG)
+    jl = jlog.JLog(jlog.TimestampLevel.NOW, jlog.LogType.LOG)
 
     if args.message:
         jl.write_to_log(args.message)
 
     if args.list:
-        jl.list_last_logs(count=10)
+        jl.list_last_logs(lines=10)
 
 
 main()
